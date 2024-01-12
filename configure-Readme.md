@@ -13,15 +13,23 @@
   nano /etc/cassandra/cassandra.yaml
   ```
 
+- ![cassandra config](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/34.png)
+
   - now change the listening address by pressing ctrl+w which will open a search field now type listen and hit enter.
+
+  - ![listen ip](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/35.png)
 
   - scroll down to the default host and change the localhost to the machine ip address which we have seen when running the ifconfig command like 192.168.1.1
 
   - now change the rpc address from localhost to the machine ip.
 
+  -![rpc ip](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/36.png)
+
   - by pressing the ctrl+w and search rpc and scroll down to rpc client and change the address.
 
   - now press ctrl+w and search seed_provider and scroll down and change the seeds ip with the machine ip.
+
+  - ![seed ip](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/37.png)
 
   - now press ctrl+x and press 'y' and hit enter.
 
@@ -42,6 +50,7 @@
   ```
   systemctl status cassandra.service
   ```
+  - ![some commands](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/38.png)
 
   - now you should see cassandra **active(running)** hit q to exit
 
@@ -50,10 +59,17 @@
   nano /etc/elasticsearch/elasticsearch.yml
   ```
 
-  - now we need to change the un comment the cluster name and change it to Test cluster.
+   - ![elastic conf](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/39.png)
+
+
+   - now we need to change the un comment the cluster name and change it to Test cluster.
+
+   - ![elastic conf1](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/40.png)
 
 
    - now uncomment the node name and keep it as node-1
+
+   - ![elastic cnonf2](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/41.png)
 
    - now uncomment the network host and put the machine ip 
 
@@ -68,6 +84,8 @@
    systemctl start elasticsearch.service
    systemctl enable ealsticsearch.service
    ```
+
+   - ![status running](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/42.png)
 
    - now lets check the status
    ```
@@ -90,6 +108,8 @@
    ```
    chown -R thehive:thehive /opt/thp
    ```
+
+   - ![thehive per](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/43.png)
 
    - now lets configure the hive file.
    ```
@@ -121,11 +141,15 @@
    systemctl status thehive
    ```
 
+   - ![status run](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/44.png)
+
    - please check each of the services they should be active(running)
 
    - now open the web browser and in the url give your machine ip:9200
 
    - now you can see the hive login page
+
+   - ![thehive login](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/45.png)
 
    - default credentials
    ```
@@ -133,6 +157,8 @@
    password:secret
    ```
 
+   - ![thehive loginsucess](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/46.png)
+   
    2. configuring the Wazuh
 
    - now open the wazuh vm and go to browser type the wazuh machineip
