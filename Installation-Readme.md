@@ -62,6 +62,8 @@ echo JAVA_HOME="/usr/lib/jvm/java-11-amazon-corretto" | sudo tee -a /etc/environ
 export JAVA_HOME="/usr/lib/jvm/java-11-amazon-corretto"
 ```
 
+- ![installing java](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/33.png)
+
   - installing cassandra
   ```
 wget -qO -  https://downloads.apache.org/cassandra/KEYS | sudo gpg --dearmor  -o /usr/share/keyrings/cassandra-archive.gpg
