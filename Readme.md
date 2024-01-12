@@ -5,6 +5,8 @@
   - wazuh server(Ubuntu 22.04)
   - the hive(Ubuntu 22.04)
 
+- ![soc image](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/soc%20image.png)
+
 - before proceeding further lets see what are the requirements of the project.
 
 - a windows 10 machine with at least following components.
@@ -27,19 +29,19 @@
 
 ## Lab Set Up Through Virtual Machine.
 
-- please go [here.]()
+- please go [here.](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/lab-setup-Readme.md)
 
 - or refer to the lab setup Readme.md
 
 ## Installing the wazuh and the hive.
 
-- please go [here.]()
+- please go [here.](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/Installation-Readme.md)
 
 - or refer to the Installation Readme.md
 
 ## Configuring The Wazuh & The Hive.
 
-- please go [here.]()
+- please go [here.](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/configure-Readme.md)
 
 - or refer to the configure Readme.md
 
@@ -80,6 +82,8 @@ Microsoft-windows-sysmon/operational
 
 - open the services and restart the wazuh manager
 
+- ![restart wazuh](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/48.png)
+
 - now open the wazuh dashboard under events make sujre you are in the alert index just search sysmon 
 
 - now we have to download the mimikatz
@@ -95,6 +99,8 @@ Microsoft-windows-sysmon/operational
 - make sure that you disabled the security settings in the browser also
 
 - link :- [mimikatz](https://github.com/gentilkiwi/mimikatz/releases/tag/2.2.0-20220919)
+
+- ![mimikatz img](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/49.png)
 
 - now unzip the mimikatz
 
@@ -135,6 +141,8 @@ systemctl restart wazuh-manager
 nano /etc/filebeat/filebeat.yaml
 ```
 
+- ![filebeat conf](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/50.png)
+
 - now scroll down and change the archive settings archive enabled : true and save the file
 
 - now restart the filebeat service
@@ -146,11 +154,15 @@ systemctl restart filebeat
 
 - click top left corner and stack management -> index patterns
 
+- ![wazuh index](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/51.png)
+
 - create a index for archive 
 
 - create index and name the index wazuh-archive-* and net and for the time field select timestamp -> create index pattern.
 
 - just open the the new indexer wazuh-archive-*
+
+- ![wazuh indes1](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/52.png)
 
 - now we can see the events
 
@@ -172,6 +184,8 @@ data.win.eventdata.OrginalFileNmae
 
 - you can see a event
 
+- ![sysmon event](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/56.png)
+
 - open one of these rule id and copy them
 
 - go to custom rules now edit the rule and paste it under rule
@@ -191,17 +205,31 @@ data.win.eventdata.OrginalFileNmae
   </rule>
  ```
 
+- ![sysmon newevent](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/58.png)
+
+- ![sysmon newevent1](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/59.png)
+
 - now save it and restart the manager
 
 - you can try changing the mimikatz file name as iloveyou.exe
 
+- ![sysmon mimikatz](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/60.png)
+
+- ![mimikatz file](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/53.png)
+
 - now open power shell and run the iloveyou.exe
+
+- ![mimikatz detected](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/54.png)
 
 - if you look out the wazuh manager we have successfully triggered even though we changed the mimikatz file name.
 
+- ![mimikats file1](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/images/55.png)
+
+
+
 ## Connecting the shuffle and the Hive 
 
- ** the bellow text is done speech to text if there are any mistakes let me know because the process takes much time to explain i had used the Microsoft speech to text.
+ ** the bellow text is done by speech to text if there are any mistakes let me know because the process takes much time to explain i had used the Microsoft speech to text.
 
 -  what is shuffle?
 
@@ -209,9 +237,9 @@ data.win.eventdata.OrginalFileNmae
 
 - SOAR means security, orchestration, automation and response.
 
--  we will setup shuffle in such a way that which will then send an alert over to The Hive and to our analyst such as yourself via an email to begin your
+-  we will setup shuffle in such a way that which will then send an alert over to The Hive and to our analyst such as yourself via an email.
 
-- first you want to head over to shuffle's site at Shuffle. Io and then you want to create an account.
+- first you want to head over to shuffle's site at Shuffle.io and then you want to create an account.
 
 - once you create an account, we can start creating our workflow
 
