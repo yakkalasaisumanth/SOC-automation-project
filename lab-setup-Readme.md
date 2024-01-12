@@ -144,4 +144,4 @@ With the VM selected, click "Start" to launch the VM.
 
 - similar ubuntu 22.04 vm for the hive
 
-- [thehive vm](https://github.com/yakkalasaisumanth/SOC-automation-project/blob/main/thehive%20settings.png)
+- [thehive vm](https://github.com/yakkalasaisumanth/soc-automation-project/blob/main/thehive%20settings.png)
